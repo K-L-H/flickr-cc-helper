@@ -46,7 +46,19 @@ function get_tasl_text( thelicense ) {
 			return 'no copyright (Flickr Commons)';
 			break;
 		default:
-			return 'CC ' + licenses[thelicense];
+			return licenses[thelicense] + ' 2.0';
+	}
+}
+
+function get_tasl_text_url( thelicense ) {
+	switch( thelicense ) {
+		case "7":
+			return 'no copyright (Flickr Commons)';
+			break;
+		default:
+			cc_lic = licenses[thelicense];
+			return 'creativecommons.org/licenses/' + cc_lic.toLowerCase()  + '/2.0/)';
+
 	}
 }
 

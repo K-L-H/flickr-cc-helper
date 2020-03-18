@@ -57,7 +57,7 @@ function get_tasl_text_url( thelicense ) {
 			break;
 		default:
 			cc_lic = licenses[thelicense];
-			return 'creativecommons.org/licenses/' + cc_lic.toLowerCase()  + '/2.0/)';
+			return 'creativecommons.org/licenses/' + cc_lic.toLowerCase()  + '/2.0/';
 
 	}
 }

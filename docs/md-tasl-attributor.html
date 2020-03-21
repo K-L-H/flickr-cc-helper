@@ -101,7 +101,7 @@ https://github.com/cogdog/flickr-cc-helper
 							// create attribution string
 							
 							// use the most accurate name for owner
-							if ( p.owner.realname === null )  {
+							if ( p.owner.realname === null || p.owner.realname === '')  {
 								owner_name = p.owner.username;
 							} else {
 								owner_name = p.owner.realname;

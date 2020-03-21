@@ -100,14 +100,21 @@ https://github.com/cogdog/flickr-cc-helper
 
 							// create attribution string
 							
-							// in case there is no title: flickr link from author name
-							if ( p.title._content == '' )  {
-								owner_and_title = '<a rel="nofollow" href="' + photolink + '">' + p.owner.username + '</a>';
+							// use the most accurate name for owner
+							if ( p.owner.realname === null )  {
+								owner_name = p.owner.username;
 							} else {
-								owner_and_title = p.owner.username + ': <a rel="nofollow" href="' + photolink + '">"' + p.title._content + '"</a>';
+								owner_name = p.owner.realname;
 							}
 							
-							attrib_str = '<h2>WP Title (static)</h2><textarea rows="5" onClick="this.select()">Kuvaa on käytetty tekijänsä myöntämän Creative Commons ' + get_tasl_text(p.license) + ' -lisenssin puitteissa.</textarea><h2>WP Caption (HTML)</h2><textarea rows="5" onClick="this.select()">© ' + owner_and_title + ' (<a rel="nofollow" href="https://' + get_tasl_text_url(p.license) + '">CC ' + get_tasl_text(p.license) + '</a>)</textarea><h2>Text attribution (not used)</h2><textarea rows="3" onClick="this.select()">© ' + p.owner.username + ': "' + p.title._content + '" (' + photolink + '). Kuvaa on käytetty tekijänsä myöntämän Creative Commons ' + get_tasl_text(p.license) + ' -lisenssin puitteissa: ' + get_tasl_text_url(p.license) + '</textarea><h2>Download Image</h2><a href="' +  photosrc + ps + '.jpg" class="dlink" download>' +  photosrc + ps + '.jpg</a>';
+							// in case there is no title: flickr link from author name
+							if ( p.title._content == '' )  {
+								owner_and_title = '<a rel="nofollow" href="' + photolink + '">' + owner_name + '</a>';
+							} else {
+								owner_and_title = owner_name + ': <a rel="nofollow" href="' + photolink + '">"' + p.title._content + '"</a>';
+							}
+							
+							attrib_str = '<h2>WP Title (static)</h2><textarea rows="5" onClick="this.select()">Kuvaa on käytetty tekijänsä myöntämän Creative Commons ' + get_tasl_text(p.license) + ' -lisenssin puitteissa.</textarea><h2>WP Caption (HTML)</h2><textarea rows="5" onClick="this.select()">© ' + owner_and_title + ' (<a rel="nofollow" href="https://' + get_tasl_text_url(p.license) + '">CC ' + get_tasl_text(p.license) + '</a>)</textarea><h2>Text attribution (not used)</h2><textarea rows="3" onClick="this.select()">© ' + owner_name + ': "' + p.title._content + '" (' + photolink + '). Kuvaa on käytetty tekijänsä myöntämän Creative Commons ' + get_tasl_text(p.license) + ' -lisenssin puitteissa: ' + get_tasl_text_url(p.license) + '</textarea><h2>Download Image</h2><a href="' +  photosrc + ps + '.jpg" class="dlink" download>' +  photosrc + ps + '.jpg</a>';
 						}
 
 						// stop the random status messages!

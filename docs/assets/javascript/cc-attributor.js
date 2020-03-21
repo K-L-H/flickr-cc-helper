@@ -45,8 +45,10 @@ function get_tasl_text( thelicense ) {
 		case "7":
 			return 'no copyright (Flickr Commons)';
 			break;
+		case "9":
+			return 'CC0 1.0';
 		default:
-			return licenses[thelicense] + ' 2.0';
+			return 'CC ' + licenses[thelicense] + ' 2.0';
 	}
 }
 
@@ -55,9 +57,12 @@ function get_tasl_text_url( thelicense ) {
 		case "7":
 			return 'no copyright (Flickr Commons)';
 			break;
+		case "9":
+			return 'creativecommons.org/publicdomain/zero/1.0/';
+			break;
 		default:
 			cc_lic = licenses[thelicense];
-			return 'creativecommons.org/licenses/' + cc_lic.toLowerCase()  + '/2.0/';
+			return 'creativecommons.org/licenses/' + cc_lic.toLowerCase()  + '/2.0/)';
 
 	}
 }
